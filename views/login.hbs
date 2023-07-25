@@ -1,0 +1,22 @@
+<div class="container col-5 my-5">
+  <div>
+    <h1 class="my-3">⚡ ENTER INTO A WIZARDING WORLD! ⚡</h1>
+    <br>
+    <div class="my-1 col-5">
+      <input id="email" name='email' placeholder="Your email" class="form-control" type="text" required>
+    </div>
+    <div class="col-5">
+      <input id="password" name='password' placeholder="Your password" class="form-control" type="password" required>
+    </div>
+    <div>
+      <input id="btnSubmit" class="btn btn-warning my-3" type="submit" value="Login">
+    </div>
+    <div id="errorMessage"></div>
+    <div>
+      <button class="btn btn-warning my-3 me-4" onclick="location.href = '/register'">New account? Register!</button>
+      <button class="btn btn-warning" onclick="location.href = '/sendRecovery'">Restore password</button>
+    </div>
+  </div>
+</div>
+
+<script src="/js/login.js"></script>

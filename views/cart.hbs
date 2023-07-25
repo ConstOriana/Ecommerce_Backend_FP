@@ -1,0 +1,41 @@
+<h1 class="text-center ps-3 my-5 text-warning" style="background-color: darkblue;">🔮 MY BASKET 🔮</h1>
+<section style="background-color: darkblue;">
+    <div class="container py-5">
+        <div class="row">
+            {{#each payload.products}}
+                <div id="idProduct{{@index}}" class="d-none">{{ product._id }}</div>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-ms-12">
+                    <div class="card mb-2">
+                        <img src={{ product.thumbnail }}
+                            class="card-img-top" alt="Img" />
+                        <div class="card-body" style="background-color:  rgba(0, 0, 139, 0.514)">
+                            <div class=" d-flex justify-content-center">
+                                <h6>{{ product.title }}</h6>
+                            </div>
+                            <div class="">
+                                <p class="small"><a href="#" class="text-warning">{{ product.category }}</a></p>
+                            </div>
+                            <div class="mb-2">
+                                <h6>{{ product.description }}</h6>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <p class="text-warning mb-0">Stock: <span id="stockSpan" class="fw-bold">{{ product.stock }}</span></p>
+                                <h6 class="text-warning mb-0">${{ product.price }}</h6>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <h6 class="text-warning mb-0">Quantity: {{ quantity }}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+        <div class="d-flex justify-content-center mt-5">
+            <button id="btnback" class="me-5 btn btn-warning">Keep checking more products</button>
+            <button id="btnPurchase" class="btn btn-warning">Finish my purchase</button>
+        </div>
+    </div>
+</section>
+
+
+<script src="/js/cart.js"></script>

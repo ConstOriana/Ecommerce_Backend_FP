@@ -1,0 +1,160 @@
+<div style="background-color: darkblue;">
+    {{#if isAdmin}}
+        <div class="jumbotron d-flex justify-content-center my-3" style="background-color: darkblue; color: gold;">
+            <h4 class="ps-3 pt-1">
+                Your administrator user: 🧙🏽{{ user }}🧙🏽
+                <button id="btnAdminUsers" class="p-2 ms-3 mt-1 btn btn-warning" style="margin: 10px;">Administrate users</button>
+            </h4>
+            <button class="p-1 btn btn-dark" onclick="location.href='/logout'" >Logout</button>
+        </div>
+        <h4 class="text-center pt-2 mb-4 mt-5 text-warning">Administrator profile</h4>
+        <div class="d-flex justify-content-center">
+            <button id="btnAddProduct" class="mb-2 btn btn-warning">Create product</button>
+        </div>
+    {{else if isPremium}}
+        <div class="jumbotron d-flex justify-content-between my-3" style="background-color: darkblue; color: gold;">
+            <h4 class="ps-3 pt-1">
+                Your premium user: 🧙🏽{{ user }}🧙🏽
+                <button id="btnAdminUsers" class="p-2 ms-3 mt-1 btn btn-warning d-none">Administrate users</button>
+            </h4>
+            <button class="p-2 btn btn-dark" onclick="location.href='/logout'">Logout</button>
+        </div>
+        <h4 class="text-center pt-2 mb-4 mt-5">Premium profile</h4>
+        <div class="d-flex justify-content-center">
+            <button id="btnAddProduct" class="mb-2 btn btn-warning">Create product</button>
+        </div>
+    {{else}}
+        <div class="jumbotron d-flex justify-content-center my-3" style="background-color: darkblue; color: gold;">
+            <h4 class="ps-5 pt-5">
+                Your wizard name: 🧙🏽{{ user }}🧙🏽
+            </h4>
+            <div>
+                <button id="btnCart" class="d-flex justify-content-center my-3 btn-success ms-5" style="padding: 10px; border:
+                none; border-radius: 25px">Go to my Basket</button>
+                <button class="d-flex justify-content-center my-3 btn-dark ms-5" onclick="location.href='/logout'" style="padding: 10px; border:
+                none; border-radius: 25px">Logout</button>
+            </div>
+        </div>
+        <h4 class="text-center ps-3 my-5 text-warning">START YOUR JOURNEY WITH OUR MAGICAL VIDEOGAMES</h4>
+        <h4 class="text-center ps-3 my-5">👇🏽✨👇🏽✨👇🏽✨👇🏽✨👇🏽✨👇🏽</h4>
+    {{/if}}
+    <section style="background-color: darkblue;">
+        <div class="container py-5 ">
+            <div class="row">
+                {{#if isAdmin}}
+                    {{#each products}}
+                        <div id="idProduct{{@index}}" class="d-none">{{ _id }}</div>
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-ms-12">
+                            <div class="card mb-2">
+                                <div id="thumbnailDiv">
+                                    <img id="thumbnail" src={{ thumbnail }} class="card-img-top" alt="Img" />
+                                </div>
+                                <div class="card-body" style="background-color:  rgba(0, 0, 139, 0.514)">
+                                    <div id="titleDiv" class=" d-flex justify-content-center">
+                                        <h6 id="title" style="color: golden;">{{ title }}</h6>
+                                    </div>
+                                    <div id="categoryDiv">
+                                        <p class="small"><a href="#" id="category" class="text-warning">{{ category }}</a></p>
+                                    </div>
+                                    <div id="descriptionDiv" class="mb-2 text-warning">
+                                        <h6 id="description">{{ description }}</h6>
+                                    </div>
+                                    <div id="stockAndPriceDiv" class="d-flex justify-content-between mb-3">
+                                        <div id="stockDiv">
+                                            <p class="text-warning mb-0">stock: <span id="stock" class="fw-bold">{{ stock }}</span></p>
+                                        </div>
+                                        <div id="priceDiv">
+                                            <h6 class="text-dark mb-0" id="price">${{ price }}</h6>
+                                        </div>
+                                    </div>
+                                    <div id="buttonsDiv" class="d-flex justify-content-center">
+                                        <button class="ms-3 text-warning" id="btnModifyProduct" data-product-index="{{@index}}" style="background-color: darkblue; border:
+                                        none">Modify</button>
+                                        <button class="ms-3 text-warning" id="btnRemoveProduct" data-product-index="{{@index}}" style="background-color: darkblue; border:
+                                        none">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                {{else if isPremium}}
+                    {{#each products}}
+                        <div id="idProduct{{@index}}" class="d-none">{{ _id }}</div>
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-ms-12">
+                            <div class="card mb-2">
+                                <div id="thumbnailDiv">
+                                    <img id="thumbnail" src={{ thumbnail }} class="card-img-top" alt="Img" />
+                                </div>
+                                <div class="card-body" style="background-color:  rgba(0, 0, 139, 0.514)">
+                                    <div id="titleDiv" class=" d-flex justify-content-center">
+                                        <h6 id="title">{{ title }}</h6>
+                                    </div>
+                                    <div id="categoryDiv">
+                                        <p class="small"><a href="#" id="category" class="text-warning ">{{ category }}</a></p>
+                                    </div>
+                                    <div id="descriptionDiv" class="mb-2">
+                                        <h6 id="description">{{ description }}</h6>
+                                    </div>
+                                    <div id="stockAndPriceDiv" class="d-flex justify-content-between mb-3">
+                                        <div id="stockDiv">
+                                            <p class="text-warning mb-0">stock: <span id="stock" class="fw-bold">{{ stock }}</span></p>
+                                        </div>
+                                        <div id="priceDiv">
+                                            <h6 class="text-dark mb-0" id="price">${{ price }}</h6>
+                                        </div>
+                                    </div>
+                                    <div id="buttonsDiv" class="d-flex justify-content-center">
+                                        <button class="ms-3" id="btnModifyProduct" data-product-index="{{@index}}" style="background-color: darkblue; border:
+                                        none">Modify</button>
+                                        <button class="ms-3" id="btnRemoveProduct" data-product-index="{{@index}}" style="background-color: darkblue; border:
+                                        none">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                {{else}}
+                    {{#each products}}
+                        <div id="idProduct{{@index}}" class="d-none">{{ _id }}</div>
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-ms-12">
+                            <div class="card mb-2">
+                                <img src={{ thumbnail }} class="card-img-top" alt="Img" />
+                                <div class="card-body" style="background-color:  rgba(0, 0, 139, 0.514)">
+                                    <div class=" d-flex justify-content-center">
+                                        <h6>{{ title }}</h6>
+                                    </div>
+                                    <div class="">
+                                        <p class="small"><a href="#" class="text-warning ">{{ category }}</a></p>
+                                    </div>
+                                    <div class="mb-2">
+                                        <h6>{{ description }}</h6>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <p class="ms-5 text-warning">stock: <span id="stockSpan" class="text-warning">{{ stock }}</span></p>
+                                        <h6 class="ms-3 text-warning">${{ price }}</h6>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <div>
+                                            <button id="btnSubstract{{@index}}" class="btn-warning">-</button>
+                                            <span id="counterSpan{{@index}}" class="text-warning">0</span>
+                                            <button id="btnPlus{{@index}}" class="btn-warning">+</button>
+                                        </div>
+                                        <button class="ms-3 btn-warning" id="btnAddToCart" data-product-index="{{@index}}">Add to basket</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                {{/if}}
+            </div>
+        </div>
+    </section>
+</div>
+{{#if isAdmin}}
+    <script src="/js/homeAdmin.js"></script>
+{{else if isPremium}}
+    <script src="/js/homeAdmin.js"></script>
+{{else}}
+    <script src="/js/homeUser.js"></script>
+{{/if}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.12/sweetalert2.all.min.js"></script>
