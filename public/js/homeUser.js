@@ -34,11 +34,12 @@ addToCartButtons.forEach((btnAddToCart) => {
         //console.log(responseJson);
         if(responseJson.status === 'success'){
             Swal.fire({
-                position: 'top-end',
+                position: 'center',
                 icon: 'success',
                 title: 'Product added',
                 showConfirmButton: false,
-                timer: 1000
+                timer: 1000,
+                background: 'black',
             });
             setTimeout(() => {
                 location.href=`/api/cart/${cartId}`;

@@ -28,11 +28,12 @@ btnSubmit.addEventListener('click', async e => {
     //console.log(response);
     if(response.status === 200){
         Swal.fire({
-            position: 'top-end',
+            position: 'center',
             icon: 'success',
             title: 'Product created',
             showConfirmButton: false,
-            timer: 1000
+            timer: 1000,
+            background: 'black'
         });
         setTimeout(() => {
             location.href='/api/products';
@@ -45,11 +46,12 @@ btnSubmit.addEventListener('click', async e => {
     console.log(responseJson);
     if(responseJson.status === 'success'){
         Swal.fire({
-            position: 'top-end',
+            position: 'center',
             icon: 'success',
             title: 'Product created',
             showConfirmButton: false,
-            timer: 1000
+            timer: 1000,
+            background: 'black'
         });
         setTimeout(() => {
             location.href='/api/products';

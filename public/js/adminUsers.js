@@ -31,11 +31,12 @@ updateRoleButtons.forEach((btnUpdateUser, index) => {
         //console.log(response);
         if(response.status === 200){
             Swal.fire({
-                position: 'top-end',
+                position: 'center',
                 icon: 'success',
                 title: 'Role updated',
                 showConfirmButton: false,
-                timer: 1000
+                timer: 1000,
+                background: 'black'
             });
             setTimeout(() => {
                 location.href='/api/users';
@@ -48,11 +49,12 @@ updateRoleButtons.forEach((btnUpdateUser, index) => {
         console.log(responseJson);
         if(responseJson.status === 'success'){
             Swal.fire({
-                position: 'top-end',
+                position: 'center',
                 icon: 'success',
                 title: 'Role updated',
                 showConfirmButton: false,
-                timer: 1000
+                timer: 1000,
+                background: 'black'
             });
             setTimeout(() => {
                 location.href='/api/users';
@@ -83,11 +85,12 @@ removeUserButtons.forEach((btnRemoveUser) => {
         //console.log(response);
         if(response.status === 200){
             Swal.fire({
-                position: 'top-end',
+                position: 'center',
                 icon: 'success',
                 title: 'User deleted',
                 showConfirmButton: false,
-                timer: 1000
+                timer: 1000,
+                background: 'black'
             });
             setTimeout(() => {
                 location.href='/api/users/';
@@ -100,11 +103,12 @@ removeUserButtons.forEach((btnRemoveUser) => {
         console.log(responseJson);
         if(responseJson.status === 'success'){
             Swal.fire({
-                position: 'top-end',
+                position: 'center',
                 icon: 'success',
                 title: 'User deleted',
                 showConfirmButton: false,
-                timer: 1000
+                timer: 1000,
+                background: 'black'
             });
             setTimeout(() => {
                 location.href='/api/users/';

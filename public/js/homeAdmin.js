@@ -96,11 +96,12 @@ removeProductButtons.forEach((btnRemoveProduct) => {
         //console.log(response);
         if(response.status === 200){
             Swal.fire({
-                position: 'top-end',
+                position: 'center',
                 icon: 'success',
                 title: 'Product Deleted',
                 showConfirmButton: false,
-                timer: 1000
+                timer: 1000,
+                background: 'black'
             });
             setTimeout(() => {
                 location.href='/api/products';
@@ -113,11 +114,12 @@ removeProductButtons.forEach((btnRemoveProduct) => {
         console.log(responseJson);
         if(responseJson.status === 'success'){
             Swal.fire({
-                position: 'top-end',
+                position: 'center',
                 icon: 'success',
                 title: 'Product Deleted',
                 showConfirmButton: false,
-                timer: 1000
+                timer: 1000,
+                background: 'black'
             });
             setTimeout(() => {
                 location.href='/api/products';
@@ -165,27 +167,27 @@ modifyProductButtons.forEach((btnModifyProduct, index) => {
         thumbnailDiv.classList.add('mt-2');
 
         thumbnailDiv.innerHTML = `
-            <label class="d-block" >URL Imagen</label>
+            <label class="d-block" >URL Image</label>
             <input type="text" id="inputThumbnail" value="${thumbnailUrl}">`;
         titleDiv.innerHTML = `
-            <label class="d-block">Titulo</label>
+            <label class="d-block">Title</label>
             <input type="text" id="inputTitle" value="${titleText}">`;
         categoryDiv.innerHTML = `
-            <label class="d-block">Categoria</label>
+            <label class="d-block">Category</label>
             <input type="text" id="inputCategory" value="${categoryText}">`;
         descriptionDiv.innerHTML = `
-            <label class="d-block">Descripción</label>
+            <label class="d-block">Description</label>
             <input type="text" id="inputDescription" value="${descriptionText}">`;
         stockDiv.innerHTML = `
             <label class="d-block">Stock</label>
             <input type="text" id="inputStock" value="${stockText}">`;
         priceDiv.innerHTML = `
-            <label class="d-block">Precio</label>
+            <label class="d-block">Price</label>
             <input type="text" id="inputPrice" value="${priceText}">`;
 
         buttonsDiv.innerHTML = `
-            <button class="ms-3" id="btnApply" data-product-index="{{@index}}">Aplicar</button>
-            <button class="ms-3" id="btnCancel" data-product-index="{{@index}}">Cancelar</button>`;
+            <button class="ms-3" id="btnApply" data-product-index="{{@index}}">Apply</button>
+            <button class="ms-3" id="btnCancel" data-product-index="{{@index}}">Cancel</button>`;
         
         const applyModifyButtons = document.querySelectorAll('[id^="btnApply"]');
         const cancelModifyButtons = document.querySelectorAll('[id^="btnCancel"]');
@@ -215,11 +217,12 @@ modifyProductButtons.forEach((btnModifyProduct, index) => {
                 //console.log(response);
                 if(response.status === 200){
                     Swal.fire({
-                        position: 'top-end',
+                        position: 'center',
                         icon: 'success',
                         title: 'Product modified',
                         showConfirmButton: false,
-                        timer: 1000
+                        timer: 1000,
+                        background: 'black'
                     });
                     setTimeout(() => {
                         location.href='/api/products';
@@ -232,11 +235,12 @@ modifyProductButtons.forEach((btnModifyProduct, index) => {
                 console.log(responseJson);
                 if(responseJson.status === 'success'){
                     Swal.fire({
-                        position: 'top-end',
+                        position: 'center',
                         icon: 'success',
                         title: 'Product modified',
                         showConfirmButton: false,
-                        timer: 1000
+                        timer: 1000,
+                        background: 'black'
                     });
                     setTimeout(() => {
                         location.href='/api/products';

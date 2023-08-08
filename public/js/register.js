@@ -28,11 +28,12 @@ btnSubmit.addEventListener('click', async e => {
     //console.log(responseJson);
     if(responseJson.status === 'success'){
         Swal.fire({
-            position: 'top-end',
+            position: 'center',
             icon: 'success',
             title: 'User registered',
             showConfirmButton: false,
-            timer: 1500
+            timer: 1500,
+            background: 'black'
         });
         setTimeout(() => {
             location.href = '/login';
